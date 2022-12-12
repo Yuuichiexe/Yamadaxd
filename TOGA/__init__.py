@@ -246,11 +246,6 @@ pbot = Client("TOGA", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 mongo_client = MongoClient(MONGO_DB_URI)
 dispatcher = updater.dispatcher
 
-has_user: bool = False
-if os.environ.get('USER_SESSION'):
-    has_user: bool = True
-    user = Client(os.environ.get('USER_SESSION'), api_id=API_ID, api_hash=API_HASH)
-
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
 DEV_USERS = list(DEV_USERS)
 WOLVES = list(WOLVES)
