@@ -116,11 +116,6 @@ if ENV:
     REDIS_URL = os.environ.get("REDIS_URL", "")
     OWNER_NAME = os.environ.get("OWNER_NAME", "")
     COTB = ""
-    UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "")
-    SPT_CLIENT_SECRET = os.environ.get("SPT_CLIENT_SECRET")
-    SPT_CLIENT_ID = os.environ.get("SPT_CLIENT_ID")
-    APP_URL = os.environ.get("APP_URL")
-
 
     try:
         BL_CHATS = set(int(x) for x in os.environ.get('BL_CHATS', "").split())
@@ -205,9 +200,6 @@ else:
     ARQ_API_KEY = Config.ARQ_API_KEY
     COTB = Config.COTB
     INFOPIC = Config.INFOPIC
-    SPT_CLIENT_SECRET = Config.SPT_CLIENT_SECRET
-    SPT_CLIENT_ID = Config.SPT_CLIENT_ID
-    APP_URL = Config.APP_URL
     
 
     try:
@@ -239,7 +231,7 @@ print("[INFO]: INITIALIZING ARQ CLIENT")
 arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 telethn = TelegramClient("TOGA", API_ID, API_HASH)
-pbot = Client("TOGA", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
+pbot = Client("toga_robot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 mongo_client = MongoClient(MONGO_DB_URI)
 dispatcher = updater.dispatcher
 
